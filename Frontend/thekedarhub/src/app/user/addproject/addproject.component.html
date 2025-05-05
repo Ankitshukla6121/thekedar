@@ -1,0 +1,81 @@
+<!-- Bootstrap Modal Button -->
+<button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#crudModal">
+    Add Project <i class="bi bi-plus-circle-dotted"></i>
+</button>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="crudModal" tabindex="-1" aria-labelledby="crudModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background-color: black; color: white; padding: 10px;">
+                <h5 class="modal-title" id="crudModalLabel" style="font-weight: bold; margin: 0;">
+                    Create New Product
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" 
+                    style="background-color:black ; border-radius: 50%; opacity: 1;">
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <form [formGroup]="renovationForm" (ngSubmit)="onSubmit()">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="squareFeet" class="form-label">Square Feet Area</label>
+                        <input type="number" formControlName="squareFeet" id="squareFeet" class="form-control" placeholder="Enter squareFeet" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="taskType" class="form-label">Select project type</label>
+                        <select id="taskType" formControlName="taskType" class="form-select">
+                            <option *ngFor="let task of taskOptions" [value]="task.name">{{ task.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <select id="location" formControlName="location" class="form-select">
+                            <option *ngFor="let location of locationOptions" [value]="location.category">{{ location.category }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="materialQuality" class="form-label">Material Quality</label>
+                        <select id="materialQuality" formControlName="materialQuality" class="form-select">
+                            <option *ngFor="let quality of materialQualities" [value]="quality.type">{{ quality.type }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="urgency" class="form-label">Urgency</label>
+                        <select id="urgency" formControlName="urgency" class="form-select">
+                            <option *ngFor="let urgency of urgencyOptions" [value]="urgency.value">{{ urgency.label }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="complexity" class="form-label">Work Complexity</label>
+                        <select id="complexity" formControlName="complexity" class="form-select">
+                            <option *ngFor="let complexity of complexityOptions" [value]="complexity.value">{{ complexity.label }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" 
+                        style="background-color: gray; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-success" 
+                        style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+                        Add
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+

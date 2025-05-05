@@ -1,0 +1,71 @@
+<app-slidebar></app-slidebar>
+
+<div class="p-4 sm:ml-64">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+       <div class="grid grid-cols-3 gap-4 mb-4">
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+            <div class="grid grid-cols-3 gap-4 mb-4">
+               <div *ngIf="errorMessage" class="alert alert-danger">
+                  <p>{{ errorMessage }}</p>
+                </div>
+                
+              
+            </div>
+         </div>
+         
+       </div>
+    </div>
+    
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 ">
+    
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+               <th scope="col" class="px-6 py-3">
+                  S.no
+              </th>
+                <th scope="col" class="px-6 py-3">
+                    Contractor name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Verification Status
+              </th>
+                <th scope="col" class="px-6 py-3">
+                    Verification
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contractor of contractors; let i = index"class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-4 p-4">
+                    {{i+1}}
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{contractor.name}}
+                </th>
+                <td class="px-6 py-4">
+                    {{contractor.email}}
+                </td>
+                <td class="px-6 py-4">
+                  {{contractor.isVerified}}
+              </td>
+                <td class="px-6 py-4">
+                  <label class="inline-flex items-center me-5 cursor-pointer">
+                     <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">No  </span> &nbsp; &nbsp;
+                     <input type="checkbox" value="" class="sr-only peer" [checked]="contractor.isVerified"
+                     (change)="toggleVerification(contractor)">
+                     <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+                     <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</span>
+                   </label>
+                </td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+ </div>

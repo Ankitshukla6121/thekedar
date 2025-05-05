@@ -1,0 +1,75 @@
+<div class="container my-4">
+ 
+
+  <div *ngIf="loading" class="text-center">
+    <p>Loading your profile...</p>
+  </div>
+
+
+
+<!-- Modal for Live Bidding -->
+<div class="modal fade" id="bidModal" tabindex="-1" aria-labelledby="bidModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content custom-modal shadow rounded-4">
+
+      <!-- Modal Header -->
+      <div class="modal-header custom-header border-0 rounded-top-4">
+        <h5 class="modal-title" id="bidModalLabel">
+          💼 <span class="text-primary fw-semibold">Live Bidding</span> — Collaborative Room
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body px-4 py-3 chat-area">
+        <div *ngFor="let bid of bids; let i = index">
+          <!-- User Bid -->
+          <div *ngIf="!bid.contractor" class="d-flex mb-3">
+            <div class="user-bubble">
+              <div class="fw-medium text-muted mb-1">User</div>
+              <div>💰 ₹{{ bid.amount }}</div>
+              <small class="text-secondary">⏱ {{ bid.completionTime }}</small>
+            </div>
+          </div>
+
+          <!-- Contractor Bid -->
+          <div *ngIf="bid.contractor" class="d-flex justify-content-end mb-3">
+            <div class="contractor-bubble">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="fw-semibold">{{ bid.contractor.name }}</span>
+                <img [src]="bid.contractor.profileImage" width="30" height="30" class="rounded-circle border border-white" />
+              </div>
+              <div>💬 ₹{{ bid.amount }}</div>
+              <small class="text-light">⏱ {{ bid.completionTime }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="border-top custom-footer px-4 py-3 bg-light rounded-bottom-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-4">
+            <input type="number" [(ngModel)]="counterBid" class="form-control input-custom" placeholder="💰 Your Bid" />
+          </div>
+          <div class="col-md-4">
+            <select class="form-select input-custom" [(ngModel)]="selectedTimeOption">
+              <option value="">⏱ Completion Time</option>
+              <option value="1 week">1 Week</option>
+              <option value="2 weeks">2 Weeks</option>
+              <option value="1 month">1 Month</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div class="col-md-4" *ngIf="selectedTimeOption === 'custom'">
+            <input type="text" [(ngModel)]="customTime" class="form-control input-custom" placeholder="e.g., 45 days" />
+          </div>
+        </div>
+        <div class="text-end mt-3">
+          <button class="btn btn-primary rounded-pill px-4" (click)="submitCounterBid()">🚀 Submit Bid</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

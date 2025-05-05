@@ -1,0 +1,131 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract FairPriceCalculator {
+
+    // Define the struct for a bid
+    struct Bid {
+        address bidder;
+        uint256 price;
+    }
+
+    // Define the struct for project status
+    struct Project {
+        uint256 minBid;
+        uint256 maxBid;
+        uint256 bidEndTime;
+        bool biddingClosed;
+        address admin;
+        address highestBidder;
+        uint256 highestBid;
+    }
+
+    // A mapping from project ID to project data
+    mapping(uint256 => Project) public projects;
+    mapping(uint256 => Bid[]) public projectBids;
+
+    // Event to emit when a new bid is placed
+    event NewBid(uint256 indexed projectId, address indexed bidder, uint256 price);
+
+    modifier onlyAdmin(uint256 projectId) {
+        require(msg.sender == projects[projectId].admin, "Only admin can perform this action");
+        _;
+    }
+
+    modifier isBiddingOpen(uint256 projectId) {
+        require(block.timestamp < projects[projectId].bidEndTime, "Bidding period has ended");
+        _;
+    }
+
+    modifier isBiddingClosed(uint256 projectId) {
+        require(block.timestamp >= projects[projectId].bidEndTime, "Bidding period is still open");
+        _;
+    }
+
+    // Function to create a new project with bid range and end time
+    function createProject(uint256 projectId, uint256 minBid, uint256 maxBid, uint256 biddingTime) public {
+        require(projects[projectId].admin == address(0), "Project already exists");
+        
+        projects[projectId] = Project({
+            minBid: minBid,
+            maxBid: maxBid,
+            bidEndTime: block.timestamp + biddingTime,
+            biddingClosed: false,
+            admin: msg.sender,
+            highestBidder: address(0),
+            highestBid: 0
+        });
+    }
+
+    // Function to place a bid for a project
+    function placeBid(uint256 projectId, uint256 price) public isBiddingOpen(projectId) {
+        require(price >= projects[projectId].minBid, "Bid is lower than the minimum bid");
+        require(price <= projects[projectId].maxBid, "Bid is higher than the maximum bid");
+        
+        // Refund the previous highest bidder if there is one
+        if (projects[projectId].highestBidder != address(0)) {
+            payable(projects[projectId].highestBidder).transfer(projects[projectId].highestBid);
+        }
+
+        // Add the new bid
+        projectBids[projectId].push(Bid({
+            bidder: msg.sender,
+            price: price
+        }));
+
+        // Update highest bidder and bid
+        projects[projectId].highestBidder = msg.sender;
+        projects[projectId].highestBid = price;
+
+        // Emit an event for the new bid
+        emit NewBid(projectId, msg.sender, price);
+    }
+
+    // Function to get the highest bid of a project
+    function getHighestBid(uint256 projectId) public view returns (address, uint256) {
+        return (projects[projectId].highestBidder, projects[projectId].highestBid);
+    }
+
+    // Function to calculate the average bid of a project
+    function calculateFairPrice(uint256 projectId) public view returns (uint256) {
+        uint256 total = 0;
+        uint256 numBids = projectBids[projectId].length;
+
+        // If no bids are placed, return 0
+        if (numBids == 0) {
+            return 0;
+        }
+
+        // Calculate the total of all bids
+        for (uint256 i = 0; i < numBids; i++) {
+            total += projectBids[projectId][i].price;
+        }
+
+        // Return the average bid price as the fair price
+        return total / numBids;
+    }
+
+    // Function to close the bidding (admin only)
+    function closeBidding(uint256 projectId) public onlyAdmin(projectId) isBiddingClosed(projectId) {
+        projects[projectId].biddingClosed = true;
+    }
+
+    // Function to get the number of bids for a project
+    function getNumberOfBids(uint256 projectId) public view returns (uint256) {
+        return projectBids[projectId].length;
+    }
+
+    // Function to refund the bid amount after bidding is closed (if the user is not the highest bidder)
+    function refundBids(uint256 projectId) public isBiddingClosed(projectId) {
+        for (uint256 i = 0; i < projectBids[projectId].length; i++) {
+            if (projectBids[projectId][i].bidder != projects[projectId].highestBidder) {
+                payable(projectBids[projectId][i].bidder).transfer(projectBids[projectId][i].price);
+            }
+        }
+    }
+
+    // Function to retrieve the project details
+    function getProjectDetails(uint256 projectId) public view returns (Project memory) {
+        return projects[projectId];
+    }
+}

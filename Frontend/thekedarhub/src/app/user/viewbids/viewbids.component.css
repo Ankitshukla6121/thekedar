@@ -1,0 +1,148 @@
+/* Glassmorphism Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  padding: 20px;
+}
+
+/* Header */
+.modal-header {
+  background: linear-gradient(135deg, #ff7eb3, #8e44ad);
+  color: white;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Open Button */
+.btn-open {
+  background: linear-gradient(135deg, #ff7eb3, #8e44ad);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+.btn-open:hover {
+  transform: scale(1.1);
+}
+
+/* Sticky Counter Bid */
+.counter-bid-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.counter-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #8e44ad;
+  text-align: center;
+}
+
+.btn-counter {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #ff7eb3, #8e44ad);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Scrollable Bids List */
+.bids-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Bid Card */
+.bid-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
+}
+.bid-card:hover {
+  transform: scale(1.03);
+}
+
+/* Contractor Details */
+.bid-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.contractor-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #ff7eb3;
+}
+
+.contractor-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+}
+
+.contractor-rating {
+  color: #ff9800;
+  font-size: 14px;
+}
+
+/* Buttons */
+.bid-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-accept, .btn-reject {
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-accept {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.btn-reject {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.btn-accept:hover {
+  transform: scale(1.1);
+}
+
+.btn-reject:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-dialog {
+      max-width: 90%;
+  }
+}

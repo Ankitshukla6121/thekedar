@@ -1,0 +1,647 @@
+<nav class="bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between p-4">
+        <!-- Logo Section -->
+        <a href="#" class="flex items-center space-x-2">
+            <img src="assets/images/logo.jpg" class="h-12 w-auto object-contain" alt="Flowbite Logo" />
+        </a>
+        
+        <!-- Desktop Navigation Links & Login Button -->
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">Home</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">About</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">Services</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">Contact</a>
+            <button class="bg-blue-700 text-white font-medium rounded-lg px-4 py-2 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700" [routerLink]="'/auth/signin'">
+                Login
+            </button>
+        </div>
+  
+        <!-- Mobile Menu Toggle Button -->
+        <button data-collapse-toggle="navbar-default" type="button" class="md:hidden inline-flex items-center p-2 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+  
+    <!-- Mobile Navigation Links -->
+    <div class="hidden md:hidden" id="navbar-default">
+        <div class="space-y-2 px-4 py-4">
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">Home</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">About</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">Services</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 rounded-lg py-2 dark:text-gray-300 dark:hover:bg-gray-800">Contact</a>
+            <button class="w-full bg-blue-700 text-white font-medium rounded-lg px-4 py-2 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700" [routerLink]="'/auth/signin'">
+                Login
+            </button>
+        </div>
+    </div>
+  </nav>
+  <header class="header">
+    <div class="container hero">
+      <div class="hero-grid">
+        <div class="hero-text fade-in-left">
+          <h1 class="hero-title">Find Your Perfect Thekedar Today</h1>
+          <p class="hero-description">
+            Connect with skilled contractors through our innovative bidding system. Post your project and get competitive quotes from verified professionals.
+          </p>
+          <div class="hero-buttons">
+            <a href="#post-project" class="button accent-button pulse">Post a Project</a>
+            <a href="#how-it-works" class="button learn-more">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-cards fade-in-right">
+          <div class="gradient-bg"></div>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-icon accent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="card-title">Easy Project Posting</h3>
+                <p class="card-description">Post your requirements in minutes</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-icon primary-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="card-title">Get Multiple Bids</h3>
+                <p class="card-description">Compare and choose the best</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <section class="hero-section">
+    <div class="gradient-overlay"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text fade-in-up">
+          <h1 class="hero-title">
+            Transform Your <span class="gradient-text">Construction Projects</span>
+          </h1>
+          <p class="hero-description">
+            Connect with skilled thekedars through our innovative bidding system. Get competitive quotes and make informed decisions.
+          </p>
+          <div class="hero-buttons">
+            <a href="#post-project" class="button accent-button">Post Your Project</a>
+            <a href="#how-it-works" class="button browse-button">Browse Thekedars</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-number accent-text">500+</div>
+              <div class="stat-label">Active Thekedars</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number primary-text">1000+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number accent-text">4.8/5</div>
+              <div class="stat-label">User Rating</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-cards fade-in-right">
+          <div class="gradient-bg"></div>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-icon accent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="card-title">Post Requirements</h3>
+                <p class="card-description">Share your project details</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-icon primary-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="card-title">Receive Bids</h3>
+                <p class="card-description">Compare competitive offers</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-icon accent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="card-title">Choose & Begin</h3>
+                <p class="card-description">Start your project confidently</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    
+    
+  
+      <section id="features" class="features-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Powerful Features</h2>
+            <p class="section-subtitle">
+              Experience a revolutionary way to connect with contractors and manage your construction projects
+            </p>
+          </div>
+          <div class="features-grid">
+            <!-- Feature 1: Smart Bidding System -->
+            <div class="feature-card fade-in-up">
+              <div class="feature-icon accent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Smart Bidding System</h3>
+              <p class="feature-description">
+                Receive competitive bids from verified contractors and compare them easily based on price and expertise.
+              </p>
+            </div>
+      
+            <!-- Feature 2: Verified Professionals -->
+            <div class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+              <div class="feature-icon primary-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Verified Professionals</h3>
+              <p class="feature-description">
+                Access a network of pre-screened and verified contractors with proven track records.
+              </p>
+            </div>
+      
+            <!-- Feature 3: Secure Payments -->
+            <div class="feature-card fade-in-up" style="animation-delay: 0.4s;">
+              <div class="feature-icon accent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Secure Payments</h3>
+              <p class="feature-description">
+                Safe and secure payment system with milestone-based releases and dispute resolution.
+              </p>
+            </div>
+      
+            <!-- Feature 4: Real-time Updates -->
+            <div class="feature-card fade-in-up" style="animation-delay: 0.6s;">
+              <div class="feature-icon primary-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Real-time Updates</h3>
+              <p class="feature-description">
+                Stay informed with real-time project updates, notifications, and progress tracking.
+              </p>
+            </div>
+      
+            <!-- Feature 5: Review System -->
+            <div class="feature-card fade-in-up" style="animation-delay: 0.8s;">
+              <div class="feature-icon accent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Review System</h3>
+              <p class="feature-description">
+                Transparent review and rating system to help you make informed decisions.
+              </p>
+            </div>
+      
+            <!-- Feature 6: Quick Response -->
+            <div class="feature-card fade-in-up" style="animation-delay: 1s;">
+              <div class="feature-icon primary-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Quick Response</h3>
+              <p class="feature-description">
+                Get quick responses from multiple contractors for your project requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+        <section id="how-it-works" class="how-it-works">
+          <div class="container">
+            <!-- Title and Subtitle -->
+            <div class="text-center fade-in">
+              <h2 class="section-title">
+                <span class="gradient-text">How ThekedarHub Works</span>
+              </h2>
+              <p class="subtitle">
+                Get your construction project started in three simple steps
+              </p>
+            </div>
+        
+            <!-- Steps -->
+            <div class="steps-container">
+              <!-- Connecting Line (Visible on large screens) -->
+              <div class="connecting-line"></div>
+        
+              <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card fade-in-left">
+                  <div class="step-header">
+                    <div class="step-number accent-bg">
+                      <span>1</span>
+                    </div>
+                    <div class="step-arrow accent-arrow">
+                      <svg viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a.75.75 0 01-.75-.75V4.66L3.97 9.94a.75.75 0 11-1.06-1.06l6.5-6.5a.75.75 0 011.06 0l6.5 6.5a.75.75 0 11-1.06 1.06l-5.28-5.28v12.59A.75.75 0 0110 18z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 class="step-title">Post Your Project</h3>
+                  <p class="step-description">Share your project details, requirements, and budget. Be as specific as possible to get accurate bids.</p>
+                  <ul class="checklist">
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Project description
+                    </li>
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Budget range
+                    </li>
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Timeline expectations
+                    </li>
+                  </ul>
+                </div>
+        
+                <!-- Step 2 -->
+                <div class="step-card fade-in-up">
+                  <div class="step-header">
+                    <div class="step-number primary-bg">
+                      <span>2</span>
+                    </div>
+                    <div class="step-arrow primary-arrow">
+                      <svg viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a.75.75 0 01-.75-.75V4.66L3.97 9.94a.75.75 0 11-1.06-1.06l6.5-6.5a.75.75 0 011.06 0l6.5 6.5a.75.75 0 11-1.06 1.06l-5.28-5.28v12.59A.75.75 0 0110 18z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 class="step-title">Receive Bids</h3>
+                  <p class="step-description">Get competitive bids from verified thekedars. Compare prices, expertise, and reviews.</p>
+                  <ul class="checklist">
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Multiple quotes
+                    </li>
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Contractor profiles
+                    </li>
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Previous work samples
+                    </li>
+                  </ul>
+                </div>
+        
+                <!-- Step 3 -->
+                <div class="step-card fade-in-right">
+                  <div class="step-header">
+                    <div class="step-number accent-bg">
+                      <span>3</span>
+                    </div>
+                  </div>
+                  <h3 class="step-title">Hire & Start</h3>
+                  <p class="step-description">Select your preferred thekedar and begin your project with confidence.</p>
+                  <ul class="checklist">
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Secure payment
+                    </li>
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Project tracking
+                    </li>
+                    <li class="checklist-item">
+                      <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      Support available
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Call to Action -->
+            <div class="cta-container">
+              <a href="#post-project" class="cta-button">
+                Start Your Project Now
+                <svg viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="benefits-section">
+          <div class="container">
+            <div class="section-header fade-in">
+              <h2 class="section-title">Benefits for Everyone</h2>
+              <p class="section-subtitle">
+                ThekedarHub creates value for both customers and contractors
+              </p>
+            </div>
+            <div class="benefits-grid">
+              <!-- For Customers -->
+              <div class="benefit-column fade-in-left">
+                <div class="benefit-header">
+                  <div class="benefit-icon accent-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 class="benefit-title">For Customers</h3>
+                </div>
+                <div class="benefit-items">
+                  <div class="benefit-item">
+                    <div class="benefit-item-icon accent-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="benefit-subtitle">Competitive Pricing</h4>
+                      <p class="benefit-description">
+                        Get multiple competitive bids for your project and choose the best value for your budget.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="benefit-item">
+                    <div class="benefit-item-icon accent-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="benefit-subtitle">Verified Professionals</h4>
+                      <p class="benefit-description">
+                        Access pre-screened contractors with verified credentials and work history.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="benefit-item">
+                    <div class="benefit-item-icon accent-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="benefit-subtitle">Secure Payments</h4>
+                      <p class="benefit-description">
+                        Protected payment system with milestone-based releases for peace of mind.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- For Thekedars -->
+              <div class="benefit-column fade-in-right">
+                <div class="benefit-header">
+                  <div class="benefit-icon primary-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 class="benefit-title">For Thekedars</h3>
+                </div>
+                <div class="benefit-items">
+                  <div class="benefit-item">
+                    <div class="benefit-item-icon primary-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="benefit-subtitle">More Opportunities</h4>
+                      <p class="benefit-description">
+                        Access a steady stream of project opportunities and grow your business.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="benefit-item">
+                    <div class="benefit-item-icon primary-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="benefit-subtitle">Professional Profile</h4>
+                      <p class="benefit-description">
+                        Showcase your expertise, portfolio, and reviews to stand out from competitors.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="benefit-item">
+                    <div class="benefit-item-icon primary-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="benefit-subtitle">Timely Payments</h4>
+                      <p class="benefit-description">
+                        Guaranteed payments through our secure milestone-based payment system.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cta fade-in-up">
+              <a href="#register" class="button cta-button">
+                Join ThekedarHub Today
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="arrow-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="testimonials-section">
+          <div class="container">
+            <div class="section-header fade-in">
+              <h2 class="section-title">Success Stories</h2>
+              <p class="section-subtitle">
+                See what our customers and thekedars have to say about their experience
+              </p>
+            </div>
+            <div class="testimonials-grid">
+              <div *ngFor="let testimonial of testimonials; let i = index" class="testimonial-card fade-in-up" [ngStyle]="{'animation-delay': (i * 0.2) + 's'}">
+                <div class="testimonial-header">
+                  <div class="avatar">{{ testimonial.initials }}</div>
+                  <div>
+                    <h4 class="testimonial-name">{{ testimonial.name }}</h4>
+                    <p class="testimonial-role">{{ testimonial.role }}</p>
+                  </div>
+                </div>
+                <div class="stars">
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                </div>
+                <p class="testimonial-quote">"{{ testimonial.quote }}"</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="categories-section">
+          <div class="container">
+            <div class="section-header fade-in">
+              <h2 class="section-title">Project Categories</h2>
+              <p class="section-subtitle">
+                Browse through our diverse range of construction and renovation services
+              </p>
+            </div>
+            <div class="categories-grid">
+              <div *ngFor="let category of categories; let i = index" class="category-card fade-in-up" [ngStyle]="{'animation-delay': (i * 0.2) + 's'}">
+                <div class="category-icon accent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="category.icon" />
+                  </svg>
+                </div>
+                <h3 class="category-title">{{ category.title }}</h3>
+                <p class="category-description">{{ category.description }}</p>
+                <ul class="category-items">
+                  <li *ngFor="let item of category.items" class="category-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="check-icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {{ item }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="cta fade-in-up">
+              <a href="#post-project" class="button cta-button">
+                Start Your Project
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="arrow-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-grid">
+              <div class="footer-section fade-in-up">
+                <h3 class="footer-title">ThekedarHub</h3>
+                <p class="footer-description">Connecting quality contractors with customers for successful construction projects.</p>
+                <div class="social-links">
+                  <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                    </svg>
+                  </a>
+                  <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                  <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="footer-section fade-in-up" style="animation-delay: 0.2s;">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                  <li *ngFor="let link of quickLinks" class="footer-link-item">
+                    <a href="#" class="footer-link">{{ link }}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-section fade-in-up" style="animation-delay: 0.4s;">
+                <h3 class="footer-title">Legal</h3>
+                <ul class="footer-links">
+                  <li *ngFor="let link of legalLinks" class="footer-link-item">
+                    <a href="#" class="footer-link">{{ link }}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-section fade-in-up" style="animation-delay: 0.6s;">
+                <h3 class="footer-title">Get In Touch</h3>
+                <ul class="footer-contact">
+                  <li class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="contact-icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    support thekedarhubgmail.com
+                  </li>
+                  <li class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="contact-icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    +91 1234567890
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p class="footer-copyright">© 2024 ThekedarHub. All rights reserved.</p>
+              <div class="footer-bottom-links">
+                <a href="#" class="footer-bottom-link">Terms</a>
+                <span class="separator">•</span>
+                <a href="#" class="footer-bottom-link">Privacy</a>
+                <span class="separator">•</span>
+                <a href="#" class="footer-bottom-link">Cookies</a>
+              </div>
+            </div>
+          </div>
+        </footer>    
+        
+  

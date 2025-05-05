@@ -1,0 +1,49 @@
+<app-slidebar></app-slidebar>
+<app-slidebar></app-slidebar>
+
+<div class="p-4 sm:ml-64 mt-2">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2">
+    
+    <!-- Table to display projects -->
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-3">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="p-4">
+            <div class="flex items-center">
+              <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="checkbox-all-search" class="sr-only">checkbox</label>
+            </div>
+          </th>
+          <th scope="col" class="px-6 py-3">Project type</th>
+          <th scope="col" class="px-6 py-3">Location</th>
+          <th scope="col" class="px-6 py-3">Material Quality</th>
+          <th scope="col" class="px-6 py-3">Urgency</th>
+          <th scope="col" class="px-6 py-3">Expected Cost</th>
+          <th scope="col" class="px-6 py-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Use *ngFor to loop through the projects -->
+        <tr *ngFor="let project of projects"  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="w-4 p-4">
+            <div class="flex items-center">
+              <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+            </div>
+          </td>
+         
+           <td class="px-6 py-4">{{ project.taskType }}</td> 
+           <td class="px-6 py-4">{{ project.location }}</td>   
+           <td class="px-6 py-4">{{ project.materialQuality }}</td>  
+           <td class="px-6 py-4">{{ project.urgency }}</td>   
+           <td class="px-6 py-4">{{ project.expectedAmount}}</td>   
+          <td class="px-6 py-4">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#bidModal" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 btn ">placed bid</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-bid></app-bid>

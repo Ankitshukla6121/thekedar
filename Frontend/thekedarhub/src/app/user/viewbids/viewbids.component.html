@@ -1,0 +1,39 @@
+
+<!-- The Modal -->
+<div class="modal fade" id="bidsModal" tabindex="-1" aria-labelledby="bidsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h4 class="modal-title" id="bidsModalLabel">🌟 Top Contractor Bids</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Sticky Counter Bid -->
+            <div class="counter-bid-section">
+                <input type="number" class="counter-input" [(ngModel)]="globalCounterBid" placeholder="Enter Counter Bid">
+                <button class="btn-counter" (click)="counterAllBids()">🔥 Counter All</button>
+            </div>
+
+            <!-- Scrollable Bids List -->
+            <div class="bids-container">
+                <div *ngFor="let bid of bids" class="bid-card">
+                    <div class="bid-header">
+                        <img [src]="bid.profilePic" class="contractor-img" alt="Contractor">
+                        <div>
+                            <h5 class="contractor-name">{{ bid.contractorName }}</h5>
+                            <p class="contractor-rating">⭐ {{ bid.rating }} / 5</p>
+                        </div>
+                    </div>
+                    <div class="bid-details">
+                        <p>💰 Bid: ₹{{ bid.amount }}</p>
+                        <p>🕒 Completion: {{ bid.time }}</p>
+                    </div>
+                    <div class="bid-actions">
+                        <button class="btn-accept" (click)="acceptBid(bid)">✅ Accept</button>
+                        <button class="btn-reject" (click)="rejectBid(bid)">❌ Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

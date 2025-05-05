@@ -1,0 +1,6 @@
+.btn-primary {
+    display: block !important; /* Ensure it's visible */
+    background-color: #4733ff !important;
+    border-color: #4733ff!important;
+  }
+  

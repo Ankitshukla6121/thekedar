@@ -1,0 +1,26 @@
+.user-dashboard {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: #f9f9fb;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  }
+  
+  .card-title {
+    font-weight: 600;
+  }
+  
+  .btn {
+    font-weight: 500;
+  }
+  

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThekedarHub Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md px-6 py-8 hidden lg:block">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-6">ThekedarHub</h2>
+      <nav class="space-y-4">
+        <a href="#" class="block text-blue-500 font-semibold" id="dashboardTab">Dashboard</a>
+        <a href="#" class="block text-gray-700" id="profileTab">Profile</a>
+        <a href="#" class="block text-gray-700" id="supportTab">Support</a>
+        <a href="#" class="block text-gray-700" id="notificationsTab">Notifications</a>
+        <a href="#" class="block text-gray-700" id="messagesTab">Messages</a>
+        <a href="#" class="block text-gray-700" id="paymentsTab">Payments</a>
+        <a href="#" class="block text-gray-700" id="settingsTab">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <!-- Mobile Sidebar Toggle -->
+      <div class="lg:hidden mb-6">
+        <button id="sidebarToggle" class="bg-blue-500 text-white px-4 py-2 rounded">Slidebar</button>
+      </div>
+
+      <header class="flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold">Welcome, Anmol Ratna</h1>
+        <div class="flex items-center space-x-4">
+          <span class="text-red-500 font-semibold">3</span>
+          <img src="user-avatar.png" alt="User Avatar" class="w-10 h-10 rounded-full">
+        </div>
+      </header>
+
+      <!-- Tab Navigation -->
+      <div class="mb-6">
+        <button class="text-lg font-semibold py-2 px-4 rounded-t-lg bg-blue-600 text-white" id="dashboardNav">Dashboard</button>
+        <button class="text-lg font-semibold py-2 px-4 rounded-t-lg bg-gray-300" id="activeBidsNav">Active Bids</button>
+        <button class="text-lg font-semibold py-2 px-4 rounded-t-lg bg-gray-300" id="projectsNav">Projects</button>
+      </div>
+
+      <!-- Dynamic Content -->
+      <!-- Dashboard Content -->
+      <section id="dashboardContent" class="tab-content">
+        <h2 class="text-xl font-bold mb-4">Dashboard</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Stats Card 1 -->
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-700">Total Projects</h3>
+            <p class="text-2xl font-bold text-blue-600">25</p>
+          </div>
+
+          <!-- Stats Card 2 -->
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-700">Active Bids</h3>
+            <p class="text-2xl font-bold text-green-600">12</p>
+          </div>
+
+          <!-- Stats Card 3 -->
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-700">Notifications</h3>
+            <p class="text-2xl font-bold text-red-600">3</p>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-700 mb-4">Project Completion Overview</h3>
+          <canvas id="completionChart" class="w-full h-64"></canvas>
+        </div>
+      </section>
+
+      <!-- Active Bids Content -->
+      <section id="activeBidsContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Active Bids</h2>
+        <p>Here are the ongoing bids you have placed:</p>
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+          <h3 class="text-lg font-semibold text-gray-700">Bid 1</h3>
+          <p class="text-gray-600">Project Description...</p>
+          <p class="text-blue-600">Status: Active</p>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+          <h3 class="text-lg font-semibold text-gray-700">Bid 2</h3>
+          <p class="text-gray-600">Project Description...</p>
+          <p class="text-blue-600">Status: Active</p>
+        </div>
+      </section>
+
+      <!-- Projects Content -->
+      <section id="projectsContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Projects</h2>
+        <p>View and manage your ongoing and completed projects:</p>
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+          <h3 class="text-lg font-semibold text-gray-700">Ongoing Project 1</h3>
+          <p class="text-gray-600">Description of ongoing project...</p>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-4">
+          <h3 class="text-lg font-semibold text-gray-700">Completed Project 1</h3>
+          <p class="text-gray-600">Description of completed project...</p>
+        </div>
+      </section>
+      <section id="profileContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Profile</h2>
+        <p>This is your profile page. Manage your account and settings.</p>
+      </section>
+
+      <section id="supportContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Support</h2>
+        <p>This is the support page. Reach out for assistance and inquiries.</p>
+      </section>
+
+      <section id="notificationsContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Notifications</h2>
+        <p>This is your notifications page. Check for any important updates.</p>
+      </section>
+
+      <section id="messagesContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Messages</h2>
+        <p>This is your messages page. View your conversations and messages.</p>
+      </section>
+
+      <section id="paymentsContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Payments</h2>
+        <p>This is your payments page. View payment history and make new payments.</p>
+      </section>
+
+      <section id="settingsContent" class="tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Settings</h2>
+        <p>This is your settings page. Update your personal preferences.</p>
+      </section>
+
+      <!-- Other sections (Profile, Support, etc.) will go here -->
+    </main>
+  </div>
+
+  <script>
+    const sidebarToggleButton = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('aside');
+
+    const tabContents = document.querySelectorAll('.tab-content');
+    const tabLinks = {
+      dashboardNav: 'dashboardContent',
+      activeBidsNav: 'activeBidsContent',
+      projectsNav: 'projectsContent',
+    };
+
+    // Hide all tab content sections
+    function hideAllTabs() {
+      tabContents.forEach(tab => tab.classList.add('hidden'));
+    }
+
+    // Show the specific content for each tab
+    function showTabContent(tabId) {
+      hideAllTabs();
+      document.getElementById(tabId).classList.remove('hidden');
+    }
+
+    // Set up event listeners for tab navigation buttons
+    document.getElementById('dashboardNav').addEventListener('click', () => {
+      showTabContent(tabLinks.dashboardNav);
+      setActiveTab('dashboardNav');
+    });
+
+    document.getElementById('activeBidsNav').addEventListener('click', () => {
+      showTabContent(tabLinks.activeBidsNav);
+      setActiveTab('activeBidsNav');
+    });
+
+    document.getElementById('projectsNav').addEventListener('click', () => {
+      showTabContent(tabLinks.projectsNav);
+      setActiveTab('projectsNav');
+    });
+
+    // Function to set active tab styling
+    function setActiveTab(activeTabId) {
+      Object.keys(tabLinks).forEach(tabId => {
+        const button = document.getElementById(tabId);
+        if (tabId === activeTabId) {
+          button.classList.remove('bg-gray-300');
+          button.classList.add('bg-blue-600', 'text-white');
+        } else {
+          button.classList.remove('bg-blue-600', 'text-white');
+          button.classList.add('bg-gray-300');
+        }
+      });
+    }
+
+    // Initially show the Dashboard tab content
+    showTabContent(tabLinks.dashboardNav);
+    setActiveTab('dashboardNav');
+
+    // Toggle sidebar visibility on mobile
+    sidebarToggleButton.addEventListener('click', () => {
+      sidebar.classList.toggle('hidden');
+    });
+
+    // Chart.js: Project Completion Overview Chart
+    const ctx = document.getElementById('completionChart').getContext('2d');
+    const completionChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Project 1', 'Project 2', 'Project 3', 'Project 4', 'Project 5'],
+        datasets: [{
+          label: 'Completion Rate',
+          data: [80, 70, 95, 50, 65],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+    // Sidebar links to tabs
+    const sidebarLinks = {
+      dashboardTab: 'dashboardContent',
+      profileTab: 'profileContent',
+      supportTab: 'supportContent',
+      notificationsTab: 'notificationsContent',
+      messagesTab: 'messagesContent',
+      paymentsTab: 'paymentsContent',
+      settingsTab: 'settingsContent',
+    };
+
+    // Hide all tabs content initially
+    function hideAllTabs() {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.add('hidden');
+      });
+    }
+
+    // Show specific tab content
+    function showTabContent(tabId) {
+      hideAllTabs();
+      document.getElementById(tabId).classList.remove('hidden');
+    }
+
+    // Add event listeners to sidebar links to show content when clicked
+    Object.keys(sidebarLinks).forEach(linkId => {
+      document.getElementById(linkId).addEventListener('click', () => {
+        showTabContent(sidebarLinks[linkId]);
+      });
+    });
+
+    // Initially show the Dashboard tab content
+    showTabContent('dashboardContent');
+
+  </script>
+</body>
+</html>

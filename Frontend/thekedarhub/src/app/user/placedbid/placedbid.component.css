@@ -1,0 +1,32 @@
+.glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .hover-effect:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-gradient {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    border: none;
+  }
+  
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #e83e8c, #fd5e53);
+  }
+  
+  @media (max-width: 576px) {
+    .modal-dialog {
+      margin: 1rem;
+    }
+    .bids-container {
+      max-height: 300px;
+    }
+  }
+  

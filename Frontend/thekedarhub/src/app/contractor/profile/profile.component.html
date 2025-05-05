@@ -1,0 +1,341 @@
+<app-slidebar></app-slidebar>
+
+<div *ngIf="loading" class="text-center my-4">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="!loading && contractorProfile" class="container mx-auto col-md-8 col-lg-6 mt-5">
+  <div class="card shadow-lg p-4 bg-light">
+      <h2 class="text-center text-2xl font-bold text-gray-700 mb-4">Contractor Profile</h2>
+
+      <div class="d-flex flex-column justify-content-center align-items-center mb-3 gap-2">
+        <img [src]="contractorProfile.contractorProfileImage || 'assets/default-profile.png'" 
+             alt="Contractor Profile Picture" 
+             class="rounded-full border shadow-md w-32 h-32 object-cover" />
+             <button class="upload-btn btn btn-primary btn-sm mt-2" data-toggle="modal" data-target="#exampleModal">
+                <i class="bi bi-person-plus-fill"></i>
+                <small *ngIf="contractorProfile.contractorProfileImage; else uploadText">
+                    Update Profile Image
+                </small>
+                <ng-template #uploadText>
+                    <small>Upload Image</small>
+                </ng-template>
+            </button>
+            
+    </div>
+    
+      <div class="p-3">
+          <p class="mb-2"><i class="fas fa-user text-primary"></i> <strong>Name:</strong> {{ contractorProfile.contractorName }}</p>
+          <p class="mb-2"><i class="fas fa-envelope text-primary"></i> <strong>Email:</strong> {{ contractorProfile.contractorEmail }}</p>
+          <p class="mb-2"><i class="fas fa-phone text-primary"></i> <strong>Phone:</strong> {{ contractorProfile.contractorPhone }}</p>
+          <p class="mb-2"><i class="fas fa-map-marker-alt text-primary"></i> <strong>Address:</strong> {{ contractorProfile.contractorAddress }}, {{ contractorProfile.contractorPincode }}</p>
+          <p class="mb-2"><i class="fas fa-briefcase text-primary"></i> <strong>Experience:</strong> {{ contractorProfile.contractorExperience }} years</p>
+          <p class="mb-2"><i class="fas fa-tools text-primary"></i> <strong>Specialization:</strong> {{ contractorProfile.contractorSpecialization }}</p>
+          <p class="mb-2"><i class="fas fa-id-badge text-primary"></i> <strong>License Number:</strong> {{ contractorProfile.contractorLicenseNumber }}</p>
+          <p class="mb-2"><i class="fas fa-check-circle text-primary"></i> <strong>Completed Projects:</strong> {{ contractorProfile.completedProjects }}</p>
+          <p class="mb-2">
+              <i class="fas fa-check-circle" 
+                 [class.text-success]="contractorProfile.availabilityStatus === 'available'" 
+                 [class.text-danger]="contractorProfile.availabilityStatus === 'unavailable'"></i> 
+              <strong>Status:</strong> {{ contractorProfile.availabilityStatus }}
+          </p>
+      </div>
+
+      <!-- Update Button (Centered) -->
+      <div class="text-center mt-3">
+          <button class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#updateModal">Update Details</button>
+      </div>
+  </div>
+</div>
+
+<!-- Contractor Form if profile does not exist -->
+<div *ngIf="!loading && !contractorProfile" class="container col-md-8 col-lg-6 bg-light p-4 mt-4 shadow-lg">
+    <div class="card p-4">
+        <h2 class="text-center text-2xl font-bold text-gray-700 mb-4">Contractor Profile</h2>
+
+        <!-- Profile Picture Upload -->
+        <div class="text-center mb-4">
+            <label for="profilePicture" class="cursor-pointer">
+                <img [src]="profileImageUrl || 'assets/default-profile.png'" 
+                    alt="Profile Picture" 
+                    class="rounded-full border shadow-md w-32 h-32 object-cover"/>
+                <input type="file" id="profilePicture" (change)="uploadProfilePicture($event)" hidden />
+            </label>
+            <p class="text-sm text-gray-500">Click to upload profile picture</p>
+        </div>
+
+        <!-- Contractor Form -->
+        <form [formGroup]="contractorForm" (ngSubmit)="saveProfile()" class="space-y-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" formControlName="contractorName" />
+                    <div *ngIf="f['contractorName'].invalid && f['contractorName'].touched" class="text-danger">
+                        Name is required.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="contractorEmail" />
+                    <div *ngIf="f['contractorEmail'].invalid && f['contractorEmail'].touched" class="text-danger">
+                        Valid email is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" formControlName="contractorPhone" />
+                    <div *ngIf="f['contractorPhone'].invalid && f['contractorPhone'].touched" class="text-danger">
+                        Enter a valid 10-digit phone number.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" formControlName="contractorAddress" />
+                    <div *ngIf="f['contractorAddress'].invalid && f['contractorAddress'].touched" class="text-danger">
+                        Address is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Pincode</label>
+                    <input type="text" class="form-control" formControlName="contractorPincode" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Experience (Years)</label>
+                    <input type="number" class="form-control" formControlName="contractorExperience" />
+                </div>
+            </div>
+
+            <!-- Contractor Type -->
+            <div class="mb-3">
+                <label class="form-label">Select Contractor Type</label>
+                <select class="form-select" formControlName="contractorSpecialization">
+                    <option *ngFor="let type of specializations" [value]="type">{{ type }}</option>
+                </select>
+                <div *ngIf="f['contractorSpecialization'].invalid && f['contractorSpecialization'].touched" class="text-danger">
+                    Select a specialization.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">License Number</label>
+                    <input type="text" class="form-control" formControlName="contractorLicenseNumber" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Completed Projects</label>
+                    <input type="number" class="form-control" formControlName="completedProjects" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Availability Status</label>
+                <select class="form-select" formControlName="availabilityStatus">
+                    <option value="available">Available</option>
+                    <option value="unavailable">Unavailable</option>
+                    <option value="busy">Busy</option>
+                </select>
+            </div>
+
+            <!-- Upload Aadhar & Documents -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Aadhar Card (PDF)</label>
+                    <input type="file" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Other Documents (PDF)</label>
+                    <input type="file" class="form-control" />
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-50" [disabled]="contractorForm.invalid">Save Profile</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel">Update Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card p-4">
+          <h2 class="text-center text-2xl font-bold text-gray-700 mb-4">Contractor Profile</h2>
+  
+        
+  
+          <!-- Contractor Form -->
+          <form [formGroup]="contractorForm" (ngSubmit)="saveProfile()" class="space-y-3">
+              <div class="row">
+                  <div class="col-md-6">
+                      <label class="form-label">Full Name</label>
+                      <input type="text" class="form-control" formControlName="contractorName" />
+                      <div *ngIf="f['contractorName'].invalid && f['contractorName'].touched" class="text-danger">
+                          Name is required.
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label">Email</label>
+                      <input type="email" class="form-control" formControlName="contractorEmail" />
+                      <div *ngIf="f['contractorEmail'].invalid && f['contractorEmail'].touched" class="text-danger">
+                          Valid email is required.
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="row">
+                  <div class="col-md-6">
+                      <label class="form-label">Phone</label>
+                      <input type="text" class="form-control" formControlName="contractorPhone" />
+                      <div *ngIf="f['contractorPhone'].invalid && f['contractorPhone'].touched" class="text-danger">
+                          Enter a valid 10-digit phone number.
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label">Address</label>
+                      <input type="text" class="form-control" formControlName="contractorAddress" />
+                      <div *ngIf="f['contractorAddress'].invalid && f['contractorAddress'].touched" class="text-danger">
+                          Address is required.
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="row">
+                  <div class="col-md-6">
+                      <label class="form-label">Pincode</label>
+                      <input type="text" class="form-control" formControlName="contractorPincode" />
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label">Experience (Years)</label>
+                      <input type="number" class="form-control" formControlName="contractorExperience" />
+                  </div>
+              </div>
+  
+              <!-- Contractor Type -->
+              <div class="mb-3">
+                  <label class="form-label">Select Contractor Type</label>
+                  <select class="form-select" formControlName="contractorSpecialization">
+                      <option *ngFor="let type of specializations" [value]="type">{{ type }}</option>
+                  </select>
+                  <div *ngIf="f['contractorSpecialization'].invalid && f['contractorSpecialization'].touched" class="text-danger">
+                      Select a specialization.
+                  </div>
+              </div>
+  
+              <div class="row">
+                  <div class="col-md-6">
+                      <label class="form-label">License Number</label>
+                      <input type="text" class="form-control" formControlName="contractorLicenseNumber" />
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label">Completed Projects</label>
+                      <input type="number" class="form-control" formControlName="completedProjects" />
+                  </div>
+              </div>
+  
+              <div class="mb-3">
+                  <label class="form-label">Availability Status</label>
+                  <select class="form-select" formControlName="availabilityStatus">
+                      <option value="available">Available</option>
+                      <option value="unavailable">Unavailable</option>
+                      <option value="busy">Busy</option>
+                  </select>
+              </div>
+  
+              <!-- Upload Aadhar & Documents -->
+              <div class="row">
+                  <div class="col-md-6">
+                      <label class="form-label">Aadhar Card (PDF)</label>
+                      <input type="file" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label">Other Documents (PDF)</label>
+                      <input type="file" class="form-control" />
+                  </div>
+              </div>
+  
+              <!-- Submit Button -->
+            
+          </form>
+      </div>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="updateProfile()" [disabled]="contractorForm.invalid">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Profile Image Upload Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-2xl shadow-xl bg-white/70 backdrop-blur-md">
+            
+            <!-- Modal Header -->
+            <div class="modal-header bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-t-2xl">
+                <h5 class="modal-title font-semibold" id="exampleModalLabel">Upload / Update Profile Picture</h5>
+                <button type="button" class="close text-white text-lg" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body p-6 flex flex-col items-center space-y-5">
+                
+                <!-- Profile Picture Preview -->
+                <div class="relative w-36 h-36 rounded-full border-4 border-blue-500 overflow-hidden shadow-lg">
+                    <a *ngIf="imagePreview || previousImage" [href]="imagePreview || previousImage" target="_blank">
+                        <img *ngIf="imagePreview; else previousImageTemplate" [src]="imagePreview" alt="Selected Image" class="w-full h-full object-cover">
+                    </a>
+                    
+                    <ng-template #previousImageTemplate>
+                        <a *ngIf="previousImage" [href]="previousImage" target="_blank">
+                            <img [src]="previousImage" alt="Current Profile" class="w-full h-full object-cover">
+                        </a>
+                        <div *ngIf="!previousImage" class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+                            No Image
+                        </div>
+                    </ng-template>
+                </div>
+                
+                <!-- File Upload Form -->
+                <form [formGroup]="profileImageForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="w-full flex flex-col items-center space-y-4">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white/80 hover:bg-white p-4 transition-all shadow-md">
+                        <svg class="w-10 h-10 mb-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                        </svg>
+                        <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
+                        <p class="text-xs text-gray-400">PNG, JPG, GIF (Max: 800x800px)</p>
+                    </label>
+                    <input id="dropzone-file" type="file" (change)="onFileSelected($event)" accept="image/*" class="hidden" />
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex justify-between w-full space-x-3">
+                        <button type="button" class="px-5 py-2 w-1/2 bg-gray-500 text-white rounded-lg shadow-md transition-all duration-300 hover:bg-gray-600 hover:shadow-lg active:scale-95" data-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="px-5 py-2 w-1/2 bg-blue-500 text-white rounded-lg shadow-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg active:scale-95">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

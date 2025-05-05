@@ -1,0 +1,57 @@
+.profile-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-details p {
+    margin: 10px 0;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .file-upload {
+    margin: 15px 0;
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input {
+      display: block;
+    }
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .upload-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+.hidden-input {
+    display: none;
+}

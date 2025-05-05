@@ -1,0 +1,50 @@
+<app-slidebar></app-slidebar>
+
+<div class="p-4 sm:ml-64 mt-2">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2">
+    <div class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
+      <div>
+        <app-addproject></app-addproject>
+      </div>
+    </div>
+
+    <!-- Table to display projects -->
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">Project type</th>
+          <th scope="col" class="px-6 py-3">Location</th>
+          <th scope="col" class="px-6 py-3">Material Quality</th>
+          <th scope="col" class="px-6 py-3">Urgency</th>
+          <th scope="col" class="px-6 py-3">Expected Cost</th>
+          <th scope="col" class="px-6 py-3">View all Bids</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Use *ngFor to loop through the projects -->
+        <tr *ngFor="let project of projects" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          
+          <td class="px-6 py-4">{{ project.taskType }}</td>  <!-- Display project type -->
+          <td class="px-6 py-4">{{ project.location }}</td>   <!-- Display location -->
+          <td class="px-6 py-4">{{ project.materialQuality }}</td>  <!-- Display material quality -->
+          <td class="px-6 py-4">{{ project.urgency }}</td>   <!-- Display urgency -->
+          <td class="px-6 py-4">{{ project.expectedAmount}}</td>  <!-- Display expected cost -->
+
+          <td>
+            <div class="text-center px-6 py-4">
+              <button type="button" class="btn btn-primary px-4 py-2" data-bs-toggle="modal" data-bs-target="#bidsModal">
+                View 
+              </button>
+            </div>          
+          </td>
+        </tr>
+      </tbody>
+      
+    </table>
+</div>
+</div>
+
+<app-placedbid></app-placedbid>
+<app-viewbids></app-viewbids>
+    
+
